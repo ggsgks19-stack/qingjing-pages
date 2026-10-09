@@ -1,0 +1,81 @@
+// 雾栈清净规则 · 草案 v0.1（2026-10-09）
+// 上线前两件事：①与 AIsouler 社区基础规则合并（覆盖800+App）②用 GKD App 实测导入一次
+// 定制组规则来源：客户反馈 + 本地实拍 UI 快照
+{
+  id: 'wuzhan-qingjing',                    // 订阅唯一ID
+  name: '雾栈清净规则',
+  version: 20261009,                        // 版本号用日期，方便核对
+  author: '雾栈',
+  checkUpdateUrl: 'https://ggsgks19-stack.github.io/qingjing-pages/wuzhan_gkd.json5',
+  supportUri: 'https://github.com/ggsgks19-stack/qingjing-pages',
+  categories: [
+    { key: 0, name: '跳过开屏' },
+    { key: 1, name: '关闭弹窗' },
+    { key: 2, name: '雾栈定制' },
+  ],
+
+  // 全局规则：对所有App生效的开屏"跳过"点击
+  globalGroups: [
+    {
+      key: 0,
+      name: '开屏广告-通用跳过',
+      desc: '匹配"跳过"按钮直接点击，覆盖绝大多数开屏广告',
+      enable: true,
+      matchAnyApp: true,
+      actionMaximum: 1,
+      order: 0,
+      rules: [
+        {
+          matches: [
+            '[text*="跳过" && text.length<=6][visibleToUser=true]',
+            '[vid*="skip" && visibleToUser=true]',
+            '[id*="btn_skip" && visibleToUser=true]',
+          ],
+          action: 'click',
+        },
+      ],
+    },
+  ],
+
+  apps: [
+    // ===== 雾栈定制组（示例，正式版随客户反馈持续补充） =====
+    {
+      id: 'com.smile.gifmaker',
+      name: '快手',
+      groups: [
+        {
+          key: 0,
+          name: '青少年模式弹窗',
+          desc: '自动点"我知道了"',
+          enable: true,
+          matchDelay: 500,
+          activityIds: ['com.yxcorp.gifmaker.HomeActivity'],
+          rules: [
+            {
+              matches: '[text="我知道了"][visibleToUser=true]',
+              action: 'click',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'com.taobao.idlefish',
+      name: '闲鱼',
+      groups: [
+        {
+          key: 0,
+          name: '更新弹窗-稍后再说',
+          desc: '自动点"稍后再说"',
+          enable: true,
+          rules: [
+            {
+              matches: '([text="稍后再说" || text="以后再说" || text="取消"] && [text*="更新"]).<n [vid*="dialog"]',
+              action: 'click',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+}
