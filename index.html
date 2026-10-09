@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>清净卫士 · 全屋网络净化管家 — 插上就清爽</title>
+<meta name="description" content="清净卫士：巴掌大的家庭网络净化盒子。插上路由器即用，一台守护全屋设备，内置 333,000 条过滤域名。到手 ¥69.99 即用，可选 ¥30/年 名单保鲜服务。">
+<meta name="keywords" content="网络净化,家庭网络,DNS,路由器,上网优化,清净卫士">
+<meta property="og:title" content="清净卫士 · 全屋网络净化管家">
+<meta property="og:description" content="巴掌大的网络净化盒子。插上就清爽，全家上网体验更干净。">
+<style>
+:root{
+  --bg:#07090f; --bg2:#0b0f1a; --card:rgba(255,255,255,.04); --line:rgba(255,255,255,.09);
+  --tx:#eef2fa; --tx2:#9aa3b8; --tx3:#6b7280;
+  --p1:#6366f1; --p2:#8b5cf6; --p3:#34d399; --red:#f87171;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:"PingFang SC","Microsoft YaHei","Segoe UI",system-ui,sans-serif;line-height:1.7;overflow-x:hidden}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+::selection{background:rgba(99,102,241,.4)}
+
+/* ---------- 顶部导航 ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:99;background:rgba(7,9,15,.72);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:.5px}
+.logo .dot{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--p1),var(--p2));display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 0 18px rgba(139,92,246,.55)}
+.nav-r{display:flex;gap:10px;align-items:center}
+.btn{display:inline-block;padding:10px 22px;border-radius:12px;font-weight:700;font-size:14px;text-decoration:none;transition:.25s;cursor:pointer;border:none}
+.btn-ghost{color:var(--tx2);border:1px solid var(--line)} .btn-ghost:hover{color:var(--tx);border-color:rgba(255,255,255,.3)}
+.btn-main{background:linear-gradient(135deg,var(--p1),var(--p2));color:#fff;box-shadow:0 6px 24px rgba(99,102,241,.4)} .btn-main:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(99,102,241,.55)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:170px 0 90px;text-align:center}
+.glow{position:absolute;border-radius:50%;filter:blur(110px);opacity:.5;pointer-events:none}
+.g1{width:520px;height:520px;background:#4338ca;top:-160px;left:-120px}
+.g2{width:460px;height:460px;background:#7c3aed;top:-80px;right:-140px}
+.g3{width:380px;height:380px;background:#065f46;bottom:-200px;left:38%;opacity:.3}
+.tag{display:inline-flex;align-items:center;gap:8px;padding:7px 18px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--tx2);font-size:13px;margin-bottom:26px}
+.tag b{color:var(--p3)}
+h1{font-size:clamp(38px,7vw,68px);font-weight:900;line-height:1.2;letter-spacing:1px}
+h1 .grad{background:linear-gradient(100deg,#a5b4fc,#c4b5fd 45%,#6ee7b7);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{max-width:620px;margin:22px auto 0;color:var(--tx2);font-size:17px}
+.cta{margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta .btn{padding:14px 34px;font-size:16px;border-radius:14px}
+
+/* ---------- 过滤演示卡 ---------- */
+.demo{margin:64px auto 0;max-width:640px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 26px;backdrop-filter:blur(10px);text-align:left}
+.demo-row{display:flex;align-items:center;gap:14px;padding:13px 6px;border-bottom:1px dashed rgba(255,255,255,.07);font-size:14px}
+.demo-row:last-child{border:none}
+.demo-row .ic{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex:none}
+.demo-row .name{flex:1;color:var(--tx2)}
+.demo-row .st{font-size:12px;font-weight:700;padding:4px 12px;border-radius:99px}
+.st-ok{color:#34d399;background:rgba(52,211,153,.12)}
+.st-no{color:#f87171;background:rgba(248,113,113,.12);text-decoration:line-through}
+.counter{margin-top:16px;text-align:center;font-size:13px;color:var(--tx3)}
+.counter b{font-size:26px;font-weight:900;background:linear-gradient(90deg,#818cf8,#6ee7b7);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums;margin:0 6px}
+
+/* ---------- 数据带 ---------- */
+.stats{padding:56px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.015)}
+.stats-g{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}
+.stat b{display:block;font-size:clamp(26px,4vw,40px);font-weight:900;background:linear-gradient(120deg,#e0e7ff,#a5b4fc);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{font-size:13px;color:var(--tx3)}
+
+/* ---------- 通用段 ---------- */
+section{padding:90px 0}
+.sec-tag{color:var(--p1);font-weight:800;font-size:13px;letter-spacing:3px;margin-bottom:10px}
+h2{font-size:clamp(26px,4vw,38px);font-weight:900;margin-bottom:14px}
+.sec-sub{color:var(--tx2);max-width:640px}
+
+/* 三步 */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 26px;position:relative;transition:.3s}
+.step:hover{transform:translateY(-6px);border-color:rgba(139,92,246,.45);box-shadow:0 18px 44px rgba(0,0,0,.45)}
+.step .n{position:absolute;top:20px;right:24px;font-size:44px;font-weight:900;color:rgba(255,255,255,.05)}
+.step .em{font-size:34px;margin-bottom:14px}
+.step h3{font-size:19px;margin-bottom:8px}
+.step p{font-size:14px;color:var(--tx2)}
+
+/* 能拦/不能拦 */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px}
+.panel{border-radius:20px;padding:30px;border:1px solid var(--line)}
+.panel.yes{background:linear-gradient(160deg,rgba(52,211,153,.08),rgba(52,211,153,.02));border-color:rgba(52,211,153,.25)}
+.panel.no{background:linear-gradient(160deg,rgba(248,113,113,.07),rgba(248,113,113,.02));border-color:rgba(248,113,113,.22)}
+.panel h3{font-size:18px;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.panel ul{list-style:none}
+.panel li{padding:10px 0;border-bottom:1px dashed rgba(255,255,255,.08);font-size:14.5px;color:var(--tx2);display:flex;gap:10px}
+.panel li:last-child{border:none}
+.panel li b{color:var(--tx)}
+.honest{margin-top:18px;font-size:13px;color:var(--tx3);background:rgba(255,255,255,.03);border-radius:12px;padding:14px 16px}
+
+/* 定价 */
+.price-g{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:780px;margin:44px auto 0}
+.price{border:1px solid var(--line);background:var(--card);border-radius:22px;padding:36px 30px;text-align:center;position:relative;transition:.3s}
+.price:hover{transform:translateY(-6px)}
+.price.hot{border:1.5px solid rgba(139,92,246,.6);box-shadow:0 0 50px rgba(99,102,241,.22);background:linear-gradient(170deg,rgba(99,102,241,.1),rgba(255,255,255,.03))}
+.price .ribbon{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--p1),var(--p2));font-size:12px;font-weight:700;padding:5px 16px;border-radius:99px;white-space:nowrap}
+.price .pn{font-size:15px;color:var(--tx2);margin-bottom:14px}
+.price .pv{font-size:52px;font-weight:900;letter-spacing:-1px}
+.price .pv small{font-size:15px;color:var(--tx3);font-weight:400}
+.price ul{list-style:none;margin:24px 0 28px;text-align:left}
+.price li{padding:9px 0;font-size:14px;color:var(--tx2);display:flex;gap:10px;align-items:flex-start}
+.price li::before{content:"✓";color:var(--p3);font-weight:900}
+.price .btn{width:100%}
+
+/* FAQ */
+.faq{max-width:760px;margin:44px auto 0}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;margin-bottom:12px;overflow:hidden}
+summary{padding:20px 24px;font-weight:700;font-size:15px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;color:var(--tx3);transition:.25s}
+details[open] summary::after{transform:rotate(45deg)}
+details .a{padding:0 24px 20px;color:var(--tx2);font-size:14.5px}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:46px 0 60px;text-align:center;color:var(--tx3);font-size:13px}
+footer .f-links{display:flex;gap:26px;justify-content:center;margin-bottom:18px}
+footer a{color:var(--tx2);text-decoration:none} footer a:hover{color:var(--tx)}
+.foot-brand{font-weight:800;font-size:15px;color:var(--tx2);margin-bottom:8px}
+
+/* 进场动画 */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rv.on{opacity:1;transform:none}
+
+@media(max-width:760px){
+  .stats-g{grid-template-columns:repeat(2,1fr);gap:28px}
+  .steps,.grid2,.price-g{grid-template-columns:1fr}
+  .hero{padding:130px 0 60px}
+  section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <div class="logo"><span class="dot">🛡️</span>清净卫士</div>
+    <div class="nav-r">
+      <a class="btn btn-ghost" href="/user">订阅查询</a>
+      <a class="btn btn-main" href="#price">立即购买</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
+  <div class="wrap">
+    <div class="tag">🛡️ 全屋网络净化 · <b>333,000</b> 条冗余域名自动过滤</div>
+    <h1>上网，<span class="grad">清清爽爽。</span></h1>
+    <p class="sub">巴掌大的小盒子，插上路由器就生效。电视、手机、平板、电脑——<b>全屋每一台设备</b>，冗余请求和追踪脚本在到达你之前，已经被挡在门外。</p>
+    <div class="cta">
+      <a class="btn btn-main" href="#price">¥69.99 到手即用</a>
+      <a class="btn btn-ghost" href="#how">它是怎么工作的 ↓</a>
+    </div>
+
+    <div class="demo">
+      <div class="demo-row"><span class="ic" style="background:rgba(52,211,153,.12)">📰</span><span class="name">资讯网页脚冗余横幅</span><span class="st st-no">已过滤</span></div>
+      <div class="demo-row"><span class="ic" style="background:rgba(52,211,153,.12)">🎬</span><span class="name">视频前贴片请求（独立域名的）</span><span class="st st-no">已过滤</span></div>
+      <div class="demo-row"><span class="ic" style="background:rgba(52,211,153,.12)">🎯</span><span class="name">行为追踪 / 数据采集器</span><span class="st st-no">已过滤</span></div>
+      <div class="demo-row"><span class="ic" style="background:rgba(255,255,255,.06)">🎬</span><span class="name">你要看的正片内容</span><span class="st st-ok">正常加载</span></div>
+      <div class="counter">演示示意 · 开机以来已过滤 <b id="cnt">0</b> 次冗余请求</div>
+    </div>
+  </div>
+</header>
+
+<div class="stats rv">
+  <div class="wrap stats-g">
+    <div class="stat"><b>333,000</b><span>内置过滤域名</span></div>
+    <div class="stat"><b>0</b><span>需要安装的 App</span></div>
+    <div class="stat"><b>全屋</b><span>所有设备同时守护</span></div>
+    <div class="stat"><b>0</b><span>强制月租 · 买断即用，订阅按需可选</span></div>
+  </div>
+</div>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-tag rv">HOW IT WORKS</div>
+    <h2 class="rv">三步，全屋干净。</h2>
+    <p class="sec-sub rv">不用装软件、不用改手机、不用懂技术。清净卫士站在你家路由器后面，替所有设备把冗余请求挡掉。</p>
+    <div class="steps">
+      <div class="step rv"><span class="n">01</span><div class="em">🔌</div><h3>插上就活</h3><p>接上电源、连到路由器，指示灯亮起即开始工作。全程不用碰电脑。</p></div>
+      <div class="step rv"><span class="n">02</span><div class="em">📶</div><h3>路由器里改一个地址</h3><p>把路由器的 DNS 改成小卫士的地址，一分钟搞定（说明书照着填就行）。也可以只给单个设备设置，不动路由器。</p></div>
+      <div class="step rv"><span class="n">03</span><div class="em">🧹</div><h3>冗余请求被挡在门外</h3><p>全家设备的冗余请求被自动识别、过滤。正常上网、看视频完全不受影响。</p></div>
+    </div>
+
+    <div class="grid2" style="margin-top:26px">
+      <div class="panel rv" style="background:linear-gradient(160deg,rgba(99,102,241,.1),rgba(255,255,255,.02));border-color:rgba(139,92,246,.35)">
+        <h3>🤝 不会设置？我们替你弄。</h3>
+        <ul>
+          <li><span>📞</span><span><b>微信视频手把手</b> — 一通电话，你把手机对着路由器，我指哪你点哪</span></li>
+          <li><span>🖥️</span><span><b>远程代设置</b> — 实在不想动手的，装个远程工具，全程我来点，你看着就行</span></li>
+          <li><span>📶</span><span><b>单设备模式兜底</b> — 路由器实在进不去的，只改手机设置也能用，一样有效</span></li>
+          <li><span>↩️</span><span><b>随时可撤</b> — 拔掉小卫士，网络立刻恢复原样，不留任何痕迹</span></li>
+        </ul>
+      </div>
+      <div class="panel rv">
+        <h3>⚡ 和"刷机旁路由"的区别</h3>
+        <ul>
+          <li><span>🧙</span><span><b>别人家</b> — 要刷机、懂Linux、啃英文论坛，装坏了自己负责</span></li>
+          <li><span>🛡️</span><span><b>清净卫士</b> — 到手即用，通电就是成品，老人小孩家庭照用不误</span></li>
+          <li><span>📖</span><span><b>说明书</b> — 图文版保姆教程，每一步都有截图</span></li>
+          <li><span>🔄</span><span><b>名单订阅</b> — 过滤名单持续保鲜，不用你碰，¥30/年可选</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:rgba(255,255,255,.015);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-tag rv">HONEST LIST</div>
+    <h2 class="rv">先说清楚：能过滤什么，不能过滤什么。</h2>
+    <p class="sec-sub rv">我们不做夸大宣传。看清楚再买，是对你的尊重。</p>
+    <div class="grid2">
+      <div class="panel yes rv">
+        <h3>✅ 能过滤</h3>
+        <ul>
+          <li><span>📢</span><span><b>网页横幅 / 弹窗 / 脚注推广</b> — 资讯站、小说站的满屏推广大幅减少</span></li>
+          <li><span>📱</span><span><b>部分 App 内推广请求</b> — 走独立统计域名的可过滤；手机端另有"跳过规则"方案兜底（年度服务包内含）</span></li>
+          <li><span>🎯</span><span><b>追踪器 / 数据采集脚本</b> — 少被"偷听"，减少跨 App 描边</span></li>
+          <li><span>🛒</span><span><b>电商页面推广位、流氓推广</b> — 列表更干净</span></li>
+          <li><span>🎬</span><span><b>部分视频前贴片</b> — 凡走独立域名的均可过滤</span></li>
+        </ul>
+      </div>
+      <div class="panel no rv">
+        <h3>⛔ 不能拦</h3>
+        <ul>
+          <li><span>🧩</span><span><b>和正片混在一起的内容</b> — 与内容走同一条通道，技术上无法只过滤而不伤内容</span></li>
+          <li><span>💼</span><span><b>平台自家"内部"推广位</b> — 刷出来的推荐、插入卡片属于内容本身</span></li>
+          <li><span>🔐</span><span><b>需要登录会员才有的内容</b> — 那是会员权益，不是技术问题</span></li>
+        </ul>
+        <div class="honest">⚠️ 说实话：任何同类产品都做不到 100%。卫士过滤的是"独立推广域名"这一层，这是覆盖面与稳定性最平衡的一层。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="price">
+  <div class="wrap">
+    <div class="sec-tag rv">PRICING</div>
+    <h2 class="rv">一次买断，不用也永不停用。</h2>
+    <p class="sec-sub rv">本产品基于开源技术整合搭建（名单来自公开社区规则、软件均为开源免费项目）。您付费买的不是软件，是<b>省事</b>：装好、配好、调好，到手插电就能用。</p>
+    <div class="price-g">
+      <div class="price hot rv">
+        <div class="ribbon">🔥 大多数人的选择</div>
+        <div class="pn">清净卫士 主机</div>
+        <div class="pv">¥69.99</div>
+        <ul>
+          <li><b>帮你省掉的事</b>：选硬件、焊机、刷固件、找名单、改格式、调分区、打外壳</li>
+          <li>以上全部装机调好 × 1，到手插电即用</li>
+          <li>出厂内置 333,000 域名整合名单（公开规则整合+去误杀）</li>
+          <li>手机 / 电视 / 平板 / 电脑 全屋覆盖，改个 DNS 就生效</li>
+          <li>附：图文说明书 + 便携供电方案 + 3D 打印外壳</li>
+        </ul>
+        <a id="buyBtn" class="btn btn-main" href="#buy-qr" rel="nofollow">🔴 微信扫码 · 咨询购买</a>
+      </div>
+      <div class="price rv">
+        <div class="pn">年度清净服务包（可选）</div>
+        <div class="pv">¥30<small> /年</small></div>
+        <ul>
+          <li><b>名单保鲜</b>：公开社区规则持续整合 + 去误杀，我替你盯</li>
+          <li><b>手机端省事包</b>：开源软件帮你装好配好，规则导入即用</li>
+          <li><b>规则全年跟进</b>：App 一更新规则就跟进，你不用自己找</li>
+          <li><b>远程带教</b>：改 DNS 配不好，管到配好为止</li>
+          <li>固件更新优先推送 + 微信售后</li>
+          <li>不续费也不变砖，冻结在最后名单照常过滤</li>
+        </ul>
+        <a class="btn btn-ghost" href="/user">查询我的订阅</a>
+      </div>
+    </div>
+    <p id="order" class="rv" style="text-align:center;margin-top:22px;font-size:13px;color:var(--tx3)">个人作品 · 拍前找客服确认现货 · 全国包邮</p>
+  </div>
+</section>
+
+<section id="buy-qr" style="padding-top:34px">
+  <div class="wrap" style="text-align:center">
+    <div class="sec-tag rv">CONTACT</div>
+    <h2 class="rv">购买 / 咨询 · 微信扫码加好友，<span style="color:var(--acc)">备注 "C3"</span></h2>
+    <p class="sec-sub rv">加好友时请务必<b>填写备注：C3</b>，看到备注才会第一时间通过。购买、续费、售后，都从这里进。</p>
+    <div class="rv" style="display:inline-block;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:34px 44px;margin-top:18px">
+      <img src="wechat_qr.png" alt="微信扫码添加好友，备注 C3" style="width:260px;height:260px;border-radius:14px;background:#fff;padding:10px;display:block;margin:0 auto">
+      <div style="margin-top:16px;font-size:15px;color:var(--tx)">① 长按或扫一扫，添加好友</div>
+      <div style="margin-top:6px;font-size:15px;color:var(--tx)">② 备注填 <b style="color:var(--acc);font-size:18px">C3</b>（买 C3 净化盒子的意思）</div>
+      <div style="margin-top:6px;font-size:15px;color:var(--tx)">③ 通过后咨询购买 · 续费 · 售后</div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-tag rv">FAQ</div>
+    <h2 class="rv">你可能想问</h2>
+    <div class="faq rv">
+      <details><summary>需要在每台手机上都装东西吗？</summary><div class="a">不需要。小卫士在"网络入口"层面工作，路由器改一次 DNS，全家设备自动生效。手机上什么都不用装。</div></details>
+      <details><summary>我路由器的 WiFi 是双频的，能用吗？</summary><div class="a">能。小卫士与路由器品牌、WiFi 频段无关，只要求你家的路由器允许修改 DNS 地址（市面主流路由器均支持）。</div></details>
+      <details><summary>订阅到期会怎么样？会变砖吗？</summary><div class="a">不会。到期后设备继续使用最后一份名单正常过滤，永不变砖。只是不再获取新名单和新固件。续费后立即恢复更新。</div></details>
+      <details><summary>会不会让网变慢？</summary><div class="a">不会。过滤发生在域名解析的瞬间，通常快过推广内容加载本身。过滤之后，网页反而加载更快、更省流量。</div></details>
+      <details><summary>怎么知道我有没有订阅、什么时候到期？</summary><div class="a">打开本页顶部的"订阅查询"，输入机身上的设备 ID 和暗号即可，到期日、剩余天数一目了然。</div></details>
+      <details><summary>坏了或者不会设置怎么办？</summary><div class="a">随机附图文版《手机使用说明书》，照着一步步点即可；仍搞不定可联系客服远程指导。拔掉小卫士，网络立即恢复原样，随时可撤。</div></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-links">
+    <a href="/user">订阅查询</a>
+    <a href="#price">购买</a>
+    <a href="#how">工作原理</a>
+  </div>
+  <div class="foot-brand">🛡️ 清净卫士 QINGJING GUARDIAN</div>
+  <div style="max-width:640px;margin:0 auto 8px;font-size:11px;line-height:1.7;opacity:.7">合规说明：本设备为家庭网络优化工具，过滤名单基于公开社区规则（anti-AD、AdGuard List 等）整理维护；配套手机软件均为免费开源项目（GKD、DoNotNotify），免费提供不另收费；您支付的费用为名单/规则更新与远程指导服务费。产品仅供个人与家庭网络使用优化。</div>
+  <div>© 2026 · 到手 ¥69.99 到手即用（出厂名单永久有效）· 年度清净服务包 ¥30/年（名单+手机端规则持续更新）· 不订阅永不停用</div>
+</footer>
+
+<script>
+/* ====== 订阅服务器地址（局域网完整URL，任何方式打开页面都能跳对） ====== */
+var SUB_BASE = "http://192.168.88.237:18888";
+try{
+  document.querySelectorAll('a[href="/user"]').forEach(function(a){ a.href = SUB_BASE + "/user"; a.target = "_blank"; });
+}catch(e){}
+/* ====== 购买方式：默认微信扫码（QR已内嵌）；如改用网盘链接，把链接填进 BUY_URL 即可 ====== */
+var BUY_URL = "";
+try{
+  var b=document.getElementById('buyBtn');
+  if(b && BUY_URL){ b.href=BUY_URL; b.target="_blank"; }
+}catch(e){}
+/* 过滤计数动画 */
+(function(){
+  var el=document.getElementById('cnt'),n=0,target=128730,t0=null;
+  function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/2200,1);p=1-Math.pow(1-p,3);
+    el.textContent=Math.floor(target*p).toLocaleString();
+    if(p<1)requestAnimationFrame(step);else tick();}
+  function tick(){setInterval(function(){target+=Math.floor(Math.random()*3)+1;el.textContent=target.toLocaleString();},1200);}
+  requestAnimationFrame(step);
+})();
+/* 进场动画 */
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(x){io.observe(x);});
+})();
+</script>
+</body>
+</html>
